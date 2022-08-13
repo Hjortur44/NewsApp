@@ -1,0 +1,19 @@
+{
+  "name": "newsapp",
+  "version": "1.0.0",
+  "description": "This app uses the rss service provided by the news site www.RUV.is",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hjortur44/NewsApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hjortur44/NewsApp/issues"
+  },
+  "homepage": "https://github.com/Hjortur44/NewsApp#readme"
+}
