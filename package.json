@@ -4,16 +4,37 @@
   "description": "This app uses the rss service provided by the news site www.RUV.is",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Hjortur44/NewsApp.git"
+    "url": "git@github.com/Hjortur44/NewsApp.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Hjortur44/NewsApp/issues"
+    "url": "https://github.com/Hjortur44/NewsApp/issues/"
   },
-  "homepage": "https://github.com/Hjortur44/NewsApp#readme"
+  "homepage": "https://github.com/Hjortur44/NewsApp/",
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.54.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
