@@ -6,14 +6,6 @@ import Index from './pages/Index.jsx';
 import NewsSection from './pages/NewsSection.jsx';
 import NotFound from './pages/NotFound.jsx';
 
-import raw from './test.json'
-
-function ff(t){
-  console.log(t);
-  fetch(raw).then(() => ff(raw.item));
-  
-}
-
 export default function App() {
 
   return (

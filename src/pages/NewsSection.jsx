@@ -1,14 +1,14 @@
-import { useParams } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 import Rss from '../components/rss/Rss.jsx';
 
-export default function NewsSection() {
-    let { id } = useParams();
-    const apiURL = new URL("https://www.ruv.is/rss/");
-    
-    if(!id) id = "frettir";
+NewsSection.propTypes = {
+    apiURL: PropTypes.objectOf(URL).isRequired,
+    apiId: PropTypes.string.isRequired
+}
 
+export default function NewsSection({ apiURL, apiId }) {
     return (
-        <Rss apiURL={apiURL} apiId={id} />
+        <Rss apiURL={apiURL} apiId={apiId} />
     )
 }
