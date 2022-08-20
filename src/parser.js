@@ -4,7 +4,7 @@ function xmlParser(text, tags) {
   let itemLocation = 0;
   let itemIndices = [];
   let itemsRaw = [];
-  let obj = {};
+  let items = [];
 
   while(itemLocation != -1) {
     itemLocation = text.indexOf("<item>", itemLocation + 1);
@@ -16,6 +16,8 @@ function xmlParser(text, tags) {
   }
 
   itemsRaw.map((item) => {
+    let obj = {};
+
     tags.map((tag) => {
       let startTag = "<" + tag + ">";
       let endTag = "</" + tag + ">";
@@ -24,13 +26,16 @@ function xmlParser(text, tags) {
       let it = item.substring(startIndx, endIndx);
       obj[tag] = it;
     });
+
+    items.push(obj);
   });
 
-  return obj;
+  return items;
 }
 
 export async function parser(apiURL, apiId, tags) {
   if(!apiURL || !apiId) return {};
+
   let parser = {};
 
     const url = new URL(apiId, apiURL);

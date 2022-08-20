@@ -1,6 +1,15 @@
-import s from './Layout.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
 
-export default function Layout({ title, children, footer }) {
+import s from "./Layout.module.scss";
+
+Layout.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.object,
+  footer: PropTypes.object
+};
+
+export default function Layout ({ title, children, footer }) {
   return (
     <div className={s.layout}>
       <header className={s.layout__header}>
@@ -11,5 +20,5 @@ export default function Layout({ title, children, footer }) {
       </main>
       <footer className={s.layout__footer}>{footer}</footer>
     </div>
-  )
+  );
 }
