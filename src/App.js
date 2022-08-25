@@ -9,12 +9,12 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 export default function App () {
   return (
-    <Layout title="RÚV fréttir" footer={
-      <p>Fréttir frá <a href="https://www.ruv.is/">RÚV</a>.</p>
+    <Layout title="Viðmót fyrir rss þjónustu frá RÚV" footer={
+      <p>Fréttavefur <a href="https://www.ruv.is/">RÚV</a>.</p>
     }>
       <Routes>
-          <Route exact path="/Hjortur44/NewsApp/" element={ <IndexPage /> }/>
-          <Route path="/Hjortur44/NewsApp/:id" element={ <SelectedNewsSectionPage /> }/>
+          <Route exact path="/" element={ <IndexPage /> }/>
+          <Route path="/:id" element={ <SelectedNewsSectionPage /> }/>
           <Route element={ <NotFoundPage /> }/>
       </Routes>
     </Layout>

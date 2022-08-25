@@ -1,53 +1,61 @@
 function xmlParser(text, tags) {
   if(!text || !tags) return [];
 
-  let itemLocation = 0;
-  let itemIndices = [];
+  const itemTagBegin = "<item>";
+  const itemTagEnd = "</item>";
+
+  let prevLocation = 0;
+  let itemLocations = [];
   let itemsRaw = [];
   let items = [];
 
-  while(itemLocation != -1) {
-    itemLocation = text.indexOf("<item>", itemLocation + 1);
-    itemIndices.push(itemLocation);
+  while(prevLocation != -1) {
+    const begin = text.indexOf(itemTagBegin, prevLocation + 1);
+    const end = text.indexOf(itemTagEnd, begin);
+    itemLocations.push([begin + itemTagBegin.length, end]);
+    prevLocation = begin;
   }
-  
-  for(let i = 1; i < itemIndices.length - 1; i++) {
-      itemsRaw.push(text.substring(itemIndices[i - 1], itemIndices[i]));
+
+  for(let i = 0; i < itemLocations.length; i++) {
+    const locs = itemLocations[i];
+    const begin = locs[0];
+    const end =  locs[1];
+    const sub = text.substring(begin, end);
+
+    itemsRaw.push(sub);
   }
 
   itemsRaw.map((item) => {
     let obj = {};
 
     tags.map((tag) => {
-      let startTag = "<" + tag + ">";
-      let endTag = "</" + tag + ">";
-      let startIndx = item.indexOf(startTag) + startTag.length;
-      let endIndx = item.indexOf(endTag);
-      let it = item.substring(startIndx, endIndx);
+      const startTag = "<" + tag + ">";
+      const endTag = "</" + tag + ">";
+      const startIndx = item.indexOf(startTag) + startTag.length;
+      const endIndx = item.indexOf(endTag);
+      const it = item.substring(startIndx, endIndx);
       obj[tag] = it;
     });
-
+ 
     items.push(obj);
   });
 
   return items;
 }
 
-export async function parser(apiURL, apiId, tags) {
-  if(!apiURL || !apiId) return {};
+export async function parser(apiURL, apiId = "", tags = []) {
+  if(!apiURL) return [];
 
-  let parser = {};
+  let result = [];
 
+  try {
     const url = new URL(apiId, apiURL);
-    const result = await fetch(url);
+    const fetchUrl = await fetch(url);
+    const text = await fetchUrl.text();
+    result = xmlParser(text, tags);
+  } catch(e) {
+    result.push(["Could not fetch item: ", apiId]);
+  }
 
-    if(!result.ok) {
-      console.error("NOOO !!");
-      return;
-    }
-
-    const text = await result.text();
-    parser = xmlParser(text, tags);
-
-  return parser;
+  return result;
 }

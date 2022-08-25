@@ -1,51 +1,60 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import { parser } from "../../parser.js";
+import rssJson from "../../rss.json";
+
+import SelectedNewsSection from "../selectedNewsSection/SelectedNewsSection.jsx";
 
 export default function AllNewsSections() {
   const [loading, setLoading] = useState(false);
+  const [news, setNews] = useState([]);
   const [error, setError] = useState("");
-  const [items, setItems] = useState([]);
-  
+  const [moreLinks, setMoreLinks] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      setError("");
 
-      const tags = ["title", "link", "description", "pubDate"]; 
-      const apiURL = "https://www.ruv.is/rss/";
-      const apiId = "frettir";
-      const result = await parser(apiURL, apiId, tags);        
-  
-      if(!result) {
-        setError('Gat ekki sótt fréttalista.');
+      const json = await fetch(rssJson).then(() => rssJson);      
+      const {url, tag, frettaefni} = json;
+      
+      let results  = [];
+      let links = [];
+
+      for(let i = 0; i < frettaefni.length; i++) {
+        const fid = frettaefni[i].id;
+        results.push({fid : fid, efni: await parser(url, frettaefni[i].url, tag)});
+        links.push(fid);   
       }
-
+  
+      setMoreLinks(links);
+      setNews(results);
       setLoading(false);
-      setItems(result);
     }
-
+    
     fetchData();
   }, []);
 
-  if (error) {
-    return (
-      <p>{error}</p>
-    );
-  }
-
-  if (loading) {
-    return (
-      <p>Sæki gögn...</p>
-    );
-  }
-
   return (
-    <ul>
-      {items.map((item, i) => {
-        return (
-          <li key={i}><a href={item.link}>{item.title}</a></li>    
-      );})}
-    </ul>
+    <div>
+      {error && (<p>{error}</p>)}
+      {loading && <p>Sæki gögn.</p>}
+      <div>
+         {news.map((item, i) => {
+          return (
+            <ul key={i}>
+              {item.efni.map((it, j) => {
+                return(
+                  <li key={j}>
+                    <a href={it.link}>{it.title}</a>
+                  </li>          
+                );
+              })}
+            </ul>
+          );
+          })}
+      </div>      
+    </div>
   );
 }

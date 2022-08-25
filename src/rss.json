@@ -1,0 +1,194 @@
+{  
+  "url": "https://www.ruv.is/rss/",
+  "tag": [
+    "title",
+    "link",
+    "description"
+  ],
+  "frettaefni": [
+    {
+      "id": "allar",
+      "url": "frettir",
+      "title": "Allar fréttir",
+      "children": []
+    },
+    {
+      "id": "innlent",
+      "url": "innlent",
+      "title": "Innlent",
+      "children": [
+        {
+          "id": "stjornmal",
+          "url": "Stjórnmál",
+          "title": "Stjórnmál",
+          "children": []
+        },
+        {
+          "id": "efnahagsmal",
+          "url": "Efnahagsmál",
+          "title": "Efnahagsmál og viðskipti",
+          "children": []
+        },
+        {
+          "id": "neytendamal",
+          "url": "Neytendamál",
+          "title": "Neytendamál",
+          "children": []
+        },
+        {
+          "id": "hofudborgarsvaedid",
+          "url": "Höfuðborgarsvæðið",
+          "title": "Höfuðborgarsvæðið",
+          "children": []
+        },
+        {
+          "id": "sudurland",
+          "url": "Suðurland",
+          "title": "Suðurland",
+          "children": []
+        },
+        {
+          "id": "austurland",
+          "url": "Austurland",
+          "title": "Austurland",
+          "children": []
+        },
+        {
+          "id": "nordurland",
+          "url": "Norðurland",
+          "title": "Norðurland",
+          "children": []
+        },
+        {
+          "id": "vesturland",
+          "url": "Vesturland",
+          "title": "Vesturland",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "erlent",
+      "url": "erlent",
+      "title": "Erlendar fréttir",
+      "children": [
+        {
+          "id": "afrika",
+          "url": "Afríka",
+          "title": "Afríka",
+          "children": []
+        },
+        {
+          "id": "asia",
+          "url": "Asía",
+          "title": "Asía",
+          "children": []
+        },
+        {
+          "id": "evropa",
+          "url": "Evrópa",
+          "title": "Evrópa",
+          "children": []
+        },
+        {
+          "id": "mid-sudur-amerika",
+          "url": "Mið- og Suður-Ameríka",
+          "title": "Mið og Suður-Ameríka",
+          "children": []
+        },
+        {
+          "id": "nordur-amerika",
+          "url": "Norður Ameríka",
+          "title": "Norður Ameríka",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "ithrottir",
+      "url": "Íþróttir",
+      "title": "Íþróttir",
+      "children": [
+        {
+          "id": "fotbolti",
+          "url": "Fótbolti",
+          "title": "Fótbolti",
+          "children": []
+        },
+        {
+          "id": "handbolti",
+          "url": "Handbolti",
+          "title": "Handbolti",
+          "children": []
+        },
+        {
+          "id" : "korfubolti",
+          "url": "Körfubolti",
+          "title": "Körfubolti",
+          "children": []
+        },
+        {
+          "id": "frjalsar",
+          "url": "Frjálsar",
+          "title": "Frjálsar",
+          "children": []
+        },
+        {
+          "id": "fimleikar",
+          "url": "Fimleikar",
+          "title": "Fimleikar",
+          "children": []
+        },
+        {
+          "id": "golf",
+          "url": "Golf",
+          "title": "Golf",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "menning",
+      "url": "menningarefni",
+      "title": "Menning",
+      "children": [
+        {
+          "id": "bokmenntir",
+          "url": "Bókmenntir",
+          "title": "Bókmenntir",
+          "children": []
+        },
+        {
+          "id": "tonlist",
+          "url": "Tónlist",
+          "title": "Tónlist",
+          "children": []
+        },
+        {
+          "id": "kvikmyndir-og-sjonvarp",
+          "url": "Kvikmyndir",
+          "title": "Kvikmyndir og sjónvarp",
+          "children": []
+        },
+        {
+          "id": "svidslist",
+          "url": "Leiklist",
+          "title": "Sviðslistir",
+          "children": []
+        },
+        {
+          "id": "gagnryni",
+          "url": "Gagnrýni",
+          "title": "Gagnrýni",
+          "children": []
+        },
+        {
+          "id": "pistlar",
+          "url": "Pistlar",
+          "title": "Pistlar",
+          "children": []
+        }
+      ]
+    }
+  ]  
+}

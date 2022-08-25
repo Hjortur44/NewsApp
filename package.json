@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Hjortur44/NewsApp/issues/"
   },
-  "homepage": "https://github.com/Hjortur44/NewsApp/",
+  "homepage": "/",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -63,7 +63,6 @@
       "react-hooks"
     ],
     "rules": {
-      "semi": [2, "always"],
       "semi-style": ["error", "last"],
       "no-extra-semi": 2,                  
       "react-hooks/rules-of-hooks": "error",
