@@ -1,5 +1,5 @@
 function xmlParser(text, tags) {
-  if(!text || !tags) return [];
+  if (!text || !tags) return [];
 
   const itemTagBegin = "<item>";
   const itemTagEnd = "</item>";
@@ -9,19 +9,18 @@ function xmlParser(text, tags) {
   let itemsRaw = [];
   let items = [];
 
-  while(prevLocation != -1) {
+  while (prevLocation != -1) {
     const begin = text.indexOf(itemTagBegin, prevLocation + 1);
     const end = text.indexOf(itemTagEnd, begin);
     itemLocations.push([begin + itemTagBegin.length, end]);
     prevLocation = begin;
   }
 
-  for(let i = 0; i < itemLocations.length; i++) {
+  for (let i = 0; i < itemLocations.length - 1; i++) {
     const locs = itemLocations[i];
     const begin = locs[0];
-    const end =  locs[1];
+    const end = locs[1];
     const sub = text.substring(begin, end);
-
     itemsRaw.push(sub);
   }
 
@@ -36,7 +35,7 @@ function xmlParser(text, tags) {
       const it = item.substring(startIndx, endIndx);
       obj[tag] = it;
     });
- 
+
     items.push(obj);
   });
 
@@ -44,7 +43,7 @@ function xmlParser(text, tags) {
 }
 
 export async function parser(apiURL, apiId = "", tags = []) {
-  if(!apiURL) return [];
+  if (!apiURL) return [];
 
   let result = [];
 
@@ -53,7 +52,7 @@ export async function parser(apiURL, apiId = "", tags = []) {
     const fetchUrl = await fetch(url);
     const text = await fetchUrl.text();
     result = xmlParser(text, tags);
-  } catch(e) {
+  } catch (e) {
     result.push(["Could not fetch item: ", apiId]);
   }
 

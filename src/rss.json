@@ -1,5 +1,5 @@
-{  
-  "url": "https://www.ruv.is/rss/",
+{
+  "rssUrl": "https://www.ruv.is/rss/",
   "tag": [
     "title",
     "link",
@@ -7,9 +7,9 @@
   ],
   "frettaefni": [
     {
-      "id": "allar",
+      "id": "ymsar",
       "url": "frettir",
-      "title": "Allar fréttir",
+      "title": "Ýmsar fréttir",
       "children": []
     },
     {
@@ -122,7 +122,7 @@
           "children": []
         },
         {
-          "id" : "korfubolti",
+          "id": "korfubolti",
           "url": "Körfubolti",
           "title": "Körfubolti",
           "children": []
@@ -190,5 +190,5 @@
         }
       ]
     }
-  ]  
+  ]
 }

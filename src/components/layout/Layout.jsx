@@ -9,7 +9,7 @@ Layout.propTypes = {
   footer: PropTypes.object
 };
 
-export default function Layout ({ title, children, footer }) {
+export default function Layout({ title, children, footer }) {
   return (
     <div className={s.layout}>
       <header className={s.layout__header}>
