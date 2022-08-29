@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router";
 
-import SubNewsSection from "../components/subNewsSection/SubNewsSection";
+import NewsSections from "../components/newsSections/NewsSections";
 
 export default function SubNewsSectionPage() {
   const { id } = useParams();
 
   return (
-    <SubNewsSection pid={id} />
+    <NewsSections id={id} />
   );
 }

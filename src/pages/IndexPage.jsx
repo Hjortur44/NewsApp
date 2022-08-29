@@ -1,9 +1,9 @@
 import React from "react";
 
-import AllNewsSections from "../components/allNewsSections/AllNewsSections";
+import NewsSections from "../components/newsSections/NewsSections";
 
 export default function IndexPage() {
   return (
-    <AllNewsSections />
+    <NewsSections id={"/"} />
   );
 }
