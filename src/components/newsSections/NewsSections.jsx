@@ -24,17 +24,20 @@ export default function NewsSections({ id }) {
     <div>
       {news && news.map((mainItem, i) => {
         return (
-          <ul key={i}>
-            <h2>{mainItem.title}</h2>
-            {mainItem.pars.map((subItem, j) => {
-              return (
-                <li key={j}>
-                  <a href={subItem.link}>{subItem.title}</a>
-                </li>
-              );
-            })
-            }
-          </ul>
+          <div key={i}>
+            <ul>
+              <h2>{mainItem.title}</h2>
+              {mainItem.pars.map((subItem, j) => {
+                return (
+                  <li key={j}>
+                    <a href={subItem.link}>{subItem.title}</a>
+                  </li>
+                );
+              })
+              }
+            </ul>
+            {id === "/" && <Link to={mainItem.id}>Fleiri frettir úr flokki...</Link>}
+          </div>
         );
       })}
       {id != "/" && <Link to="/">Til baka</Link>}

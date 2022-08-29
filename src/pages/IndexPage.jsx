@@ -1,6 +1,6 @@
 import React from "react";
 
-import NewsSections from "../components/newsSections/NewsSections";
+import NewsSections from "../components/newsSections/NewsSections.jsx";
 
 export default function IndexPage() {
   return (

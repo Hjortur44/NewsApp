@@ -2,8 +2,7 @@
   "rssUrl": "https://www.ruv.is/rss/",
   "tag": [
     "title",
-    "link",
-    "description"
+    "link"
   ],
   "frettaefni": [
     {
