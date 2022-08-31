@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
 import Layout from "./components/layout/Layout.jsx";
 
 import IndexPage from "./pages/IndexPage.jsx";

@@ -49,9 +49,8 @@ export async function parser(apiURL, apiId = "", tags = []) {
 
   try {
     const url = new URL(apiId, apiURL);
-    const fetchUrl = await fetch(url);
-    const text = await fetchUrl.text();
-    result = xmlParser(text, tags);
+    const fetchData = await fetch(url).then(res => res.text());
+    result = xmlParser(fetchData, tags);
   } catch (e) {
     result.push(["Could not fetch item: ", apiId]);
   }

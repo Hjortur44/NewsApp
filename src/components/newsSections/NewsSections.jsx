@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useQuery } from "react-query";
+
 import PropTypes from "prop-types";
 
 import { mapper } from "./mapper.js";
@@ -9,38 +10,30 @@ NewsSections.propTypes = {
 };
 
 export default function NewsSections({ id }) {
-  const [news, setNews] = useState([]);
+  const fetch = async () => {
+    return await mapper(id);
+  };
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await mapper(id);
-      setNews(result);
-    }
-
-    fetchData();
-  }, [id]);
+  const { isSuccess, isLoading, isError, data } = useQuery(["repo"], fetch);
 
   return (
     <div>
-      {news && news.map((mainItem, i) => {
+      {isLoading && (<p>Sæki gögn ...</p>)}
+      {isError && (<p>Villa !!</p>)}
+      {isSuccess && data.map((d, i) => {
         return (
           <div key={i}>
+            <h2>{d.title}</h2>
             <ul>
-              <h2>{mainItem.title}</h2>
-              {mainItem.pars.map((subItem, j) => {
+              {d.pars.map((p, j) => {
                 return (
-                  <li key={j}>
-                    <a href={subItem.link}>{subItem.title}</a>
-                  </li>
+                  <li key={j}><a href={p.link}>{p.title}</a></li>
                 );
-              })
-              }
+              })}
             </ul>
-            {id === "/" && <Link to={mainItem.id}>Fleiri frettir úr flokki...</Link>}
           </div>
         );
       })}
-      {id != "/" && <Link to="/">Til baka</Link>}
     </div>
   );
 }
