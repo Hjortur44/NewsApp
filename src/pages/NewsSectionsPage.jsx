@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 
 import NewsSections from "../components/newsSections/NewsSections.jsx";
 
-export default function SubNewsSectionPage() {
+export default function NewsSectionsPage() {
   const { id } = useParams();
 
   return (

@@ -1,7 +1,28 @@
 .container {
-  align-items: center;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  &__header {
+    text-decoration: underline;
+  }
+
+  &__list {
+    list-style: none;
+    max-width: 20rem;
+  }
+
+  &__list_item {
+    max-height: 1rem;
+    overflow: hidden;
+    margin: 0.5rem;
+    padding-bottom: 0.3rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__list_item:hover {
+    font-weight: bold;
+    overflow: visible;
+  }
+
+  &__list_item a {
+    color: red;
+  }
 }

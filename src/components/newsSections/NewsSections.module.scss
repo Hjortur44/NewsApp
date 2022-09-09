@@ -1,4 +1,7 @@
 .container {
-  display: flex;
-  justify-content: space-around;
+  border: 1px solid black;
+
+  &__section {
+    border: 1px solid green;
+  }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import PropTypes from "prop-types";
 
@@ -8,10 +9,11 @@ import NewsSection from "../newsSection/NewsSection";
 import s from "./NewsSections.module.scss";
 
 NewsSections.propTypes = {
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  limit: PropTypes.number
 };
 
-export default function NewsSections({ id }) {
+export default function NewsSections({ id, limit = 0 }) {
   const fetch = async () => {
     return await mapper(id);
   };
@@ -20,11 +22,15 @@ export default function NewsSections({ id }) {
 
   return (
     <div className={s.container}>
-      {isLoading && (<p>Sæki gögn ...</p>)}
-      {isError && (<p>Villa !!</p>)}
+      {isLoading && (<p>Sæki gögn...</p>)}
+      {isError && (<p>Villa !</p>)}
       {isSuccess && data.map((d, i) => {
         return (
-          <NewsSection key={i} sectionTitle={d.title} articles={d.pars} />
+          <section key={i} className={s.container__section}>
+            <NewsSection sectionTitle={d.title} articles={d.pars} limit={limit} />
+            {id === "/" && <Link to={d.id}>Fleiri fréttir...</Link>}
+            {id !== "/" && <Link to="/">Til baka...</Link>}
+          </section>
         );
       })}
     </div>
