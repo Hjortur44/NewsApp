@@ -1,7 +1,55 @@
 .container {
-  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
-  &__section {
-    border: 1px solid green;
+  &__sub {
+    border: 2px solid blue;
+    border-radius: 5%;
+    margin-bottom: 1rem;
+  }
+
+  &__sub_header {
+    margin: 0.5rem;
+    text-decoration: underline;
+  }
+
+  &__sub_list {
+    margin: 0;
+    list-style: none;
+    max-width: 18rem;
+  }
+
+  &__sub_list_item {
+    overflow: hidden;
+    margin-left: -1rem;
+    padding: 0.2rem 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__sub_list_item:hover {
+    font-weight: bold;
+  }
+
+  &__sub_list_item a {
+    color: red;
+  }
+
+  &__sub_list_item a:visited {
+    color: purple;
+  }
+
+  &__sub_list_links {
+    margin-left: -1.5rem;
+    padding: 0.5rem 0 0.3rem 0;
+  }
+
+  &__sub_list_links a {
+    font-size: large;
+  }
+
+  &__sub_list_links a:hover {
+    font-weight: bolder;
   }
 }

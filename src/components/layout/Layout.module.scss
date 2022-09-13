@@ -1,6 +1,11 @@
 .layout {
+  margin: 0;
+  padding: 0;
+
   &__header {
+    border: 5px solid black;
     padding: 0 1rem;
+    text-align: center;
   }
 
   &__main {
