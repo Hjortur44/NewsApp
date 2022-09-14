@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 
 import { mapper } from "./mapper.js";
@@ -30,10 +29,6 @@ export default function NewsSection({ id }) {
                   </li>
                 );
               })}
-              <div className={s.container__sub_list_links}>
-                {id === "/" && <Link to={d.id}>Fleiri fréttir...</Link>}
-                {id !== "/" && <Link to={"/"}>Til baka...</Link>}
-              </div>
             </ul>
           </div>
         );

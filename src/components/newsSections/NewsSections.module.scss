@@ -39,17 +39,4 @@
   &__sub_list_item a:visited {
     color: purple;
   }
-
-  &__sub_list_links {
-    margin-left: -1.5rem;
-    padding: 0.5rem 0 0.3rem 0;
-  }
-
-  &__sub_list_links a {
-    font-size: large;
-  }
-
-  &__sub_list_links a:hover {
-    font-weight: bolder;
-  }
 }

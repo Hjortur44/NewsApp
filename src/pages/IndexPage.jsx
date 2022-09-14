@@ -4,6 +4,6 @@ import NewsSections from "../components/newsSections/NewsSections.jsx";
 
 export default function IndexPage() {
   return (
-    <NewsSections id={"/"} />
+    <NewsSections id={"/"} limit={5} />
   );
 }

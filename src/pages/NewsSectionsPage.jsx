@@ -7,6 +7,6 @@ export default function NewsSectionsPage() {
   const { id } = useParams();
 
   return (
-    <NewsSections id={id} />
+    <NewsSections id={id} limit={0} />
   );
 }
